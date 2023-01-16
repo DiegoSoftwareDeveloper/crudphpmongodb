@@ -1,0 +1,19 @@
+db.personas.insert({
+    "nombre": "Juan",
+    "primerApellido":"Martinez",
+    "segundoApellido": "Hernandez",
+    "fecha_nacimiento" : "01-04-2000"
+})
+
+db.createUser(
+    {
+        user:"mongoadmin",
+        pwd: "123456",
+        roles: [
+            { role: "readWrite", db: "crud" }
+        ]
+    }
+);
+
+
+mongo -u mongoadmin -p 123456 -- authenticationDatabase crud
