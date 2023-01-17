@@ -10,5 +10,16 @@
                 return $th->getMessage();
             }
         }
+
+        public function insertarDatos($datos){
+            try {
+                $conexion = parent::conectar();
+                $coleccion = $conexion->personas;
+                $respuesta = $coleccion->insertOne($datos);
+                return $respuesta;
+            } catch (\Throwable $th) {
+                $th->getMessage();
+            }
+        }
     }
 ?>
