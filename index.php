@@ -1,3 +1,10 @@
+<?php
+    require_once "./clases/Conexion.php";
+    require_once "./clases/Crud.php";
+    $crud = new Crud();
+    $datos = $crud->mostrarDatos(); 
+?>
+
 <?php include "./header.php"; ?>
 
 <div class="container">
@@ -20,11 +27,14 @@
                             <th>Eliminar</th>
                         </thead>
                         <tbody>
+                            <?php
+                                foreach ($datos as $item) {
+                            ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $item->nombre; ?></td>
+                                <td><?php echo $item->primerApellido; ?></td>
+                                <td><?php echo $item->segundoApellido; ?></td>
+                                <td><?php echo $item->fecha_nacimiento; ?></td>
                                 <td class="text-center">
                                     <form action="" method="post">
                                         <button class="btn btn-warning">
@@ -40,6 +50,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

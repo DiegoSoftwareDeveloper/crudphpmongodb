@@ -17,17 +17,11 @@ class conexion {
                                 $servercon . ":" .
                                 $port . "/" .
                                 $databasecon;
-
-                                $client = new Mongo($canConnection);
-                                //$client = new MongoDB\Driver\Manager('mongodb://localhost:27017');
-                                return $client->selectDatabase($databasecon);
+            $client = new Mongo($canConnection);
+            return $client->selectDatabase($databasecon);
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
 }
-
-$objeto = new Conexion();
-var_dump($objeto->conectar());
-
 ?>
