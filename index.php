@@ -43,7 +43,8 @@
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form action="" method="post">
+                                    <form action="./eliminar.php" method="post">
+                                        <input type="text" hidden value="<?php echo $item->_id ?>" name="id"/>
                                         <button class="btn btn-danger">
                                             <i class="fa-solid fa-user-xmark"></i>
                                         </button>

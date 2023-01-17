@@ -1,4 +1,12 @@
-<?php include "./header.php"; ?>
+<?php 
+    include "./clases/Conexion.php"; 
+    include "./clases/Crud.php"; 
+    include "./header.php"; 
+
+    $crud = new Crud();
+    $id = $_POST['id'];
+    $datos = $crud->obtenerDocumento($id);  
+?>
 
 <div class="container">
     <div class="row">
@@ -18,10 +26,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $datos->nombre;?></td>
+                                <td><?php echo $datos->primerApellido;?></td>
+                                <td><?php echo $datos->segundoApellido;?></td>
+                                <td><?php echo $datos->fecha_nacimiento;?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -30,7 +38,8 @@
                         <p>Esta seguro de que desea eliminar este usuario?</p>
                         <p>Una vez eliminado no podrá recuperarlo</p>
                     </div>
-                    <form action="" method="post">
+                    <form action="./procesos/eliminar.php" method="post">
+                        <input type="text" hidden value="<?php echo $datos->_id; ?>" name="id"/>
                         <button class="btn btn-danger">
                             <i class="fa-solid fa-user-xmark"></i>Eliminar
                         </button>
