@@ -67,4 +67,23 @@
                 $th->getMessage();
             }
         }
+
+        public function mensajesCrud($mensaje)
+        {
+            try {
+                $msg = '';
+                
+                if ($mensaje == 'insert') {
+                    $msg = 'swal("Excelente!","El registro se agrego con exito","success")';
+                }elseif ($mensaje == 'update') {
+                    $msg = 'swal("Excelente!","El registro se edito con exito","info")';
+                }elseif ($mensaje == 'delete') {
+                    $msg = 'swal("Excelente!","El registro se elimino con exito","warning")';
+                }
+
+                return $msg;
+            } catch (\Throwable $th) {
+                $th->getMessage();
+            }
+        }
     }

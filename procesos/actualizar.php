@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+
     include "../clases/Conexion.php";
     include "../clases/Crud.php";
 
@@ -15,6 +16,7 @@
     $respuesta = $crud->actualizar($id, $datos);
 
     if ($respuesta->getModifiedCount() > 0 || $respuesta->getmatchedCount() > 0) {
+        $_SESSION['mensaje_crud'] = 'update';
         header("location:../index.php");
     }else{
         print_r($respuesta);
