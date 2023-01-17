@@ -1,9 +1,11 @@
+use crud;
+
 db.personas.insert({
     "nombre": "Juan",
     "primerApellido":"Martinez",
     "segundoApellido": "Hernandez",
     "fecha_nacimiento" : "01-04-2000"
-})
+});
 
 db.createUser(
     {
@@ -15,5 +17,10 @@ db.createUser(
     }
 );
 
+exit
 
 mongo -u mongoadmin -p 123456 -- authenticationDatabase crud
+
+use crud;
+
+db.personas.find();
